@@ -20,7 +20,7 @@ getgopr<- postForm(
   exportDataAccessGroups='false',
   returnFormat='json' ,
   fields='
-    u025_ptid,
+  u025_ptid,
   u025,
   u025_observational_arm_consent_complete,
   u025_ucipath,
@@ -91,8 +91,8 @@ report1[i<-i+1,]<-c("Confirmed Consents (Enrolled)",sum(gopr$u025_observational_
 
 #PATHOLOGY
 i<-0
-report2<-matrix('',nrow=7, ncol=3)
-report2[i<-i+1,]<-c("UCI Pathology Result Reported",'',sum(gopr$u025_ucipath_done))
+report2<-matrix('',nrow=6, ncol=3)
+#report2[i<-i+1,]<-c("UCI Pathology Result Reported",'',sum(gopr$u025_ucipath_done))
 report2[i<-i+1,]<-c("Exited without Pathology",'',sum(gopr$u025_ucipath_done==0 & gopr$u025_exit___1==1))
 report2[i<-i+1,]<-c("UCI Pathology Results Pending",'',sum(gopr$u025_ucipath_done==0 & gopr$u025_exit___1==0)) 
 
