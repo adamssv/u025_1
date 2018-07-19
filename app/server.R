@@ -1,20 +1,14 @@
 library(shiny)
 
-# Define server logic required to generate and plot a random distribution
 shinyServer(function(input, output) {
-   
-  # Expression that generates a plot of the distribution. The expression
-  # is wrapped in a call to renderPlot to indicate that:
-  #
-  #  1) It is "reactive" and therefore should be automatically 
-  #     re-executed when inputs change
-  #  2) Its output type is a plot 
-  #
-  output$distPlot <- renderPlot({
+ 
+
+        output$report1 <- renderTable(report1, colnames=FALSE, bordered=TRUE, spacing='xs',align='lr')
+        output$report2 <- renderTable(report2, colnames=FALSE, bordered=TRUE,spacing='xs',align='llr')
+        output$report3 <- renderTable(report3, colnames=FALSE, bordered=TRUE,spacing='xs',align='llr')
+        output$report4 <- renderTable(report4 , colnames=FALSE, bordered=TRUE, spacing='xs',align='llr')
         
-    # generate an rnorm distribution and plot it
-    dist <- rnorm(input$obs)
-    hist(dist)
-  })
+
   
-})
+}
+)
